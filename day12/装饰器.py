@@ -3,8 +3,9 @@
 def wrapper(func):
     def inner(*args, **kwargs):
         print('before exec')
-        func(*args, **kwargs)
+        ret = func(*args, **kwargs)
         print('end exec')
+        return ret
     return inner
 
 @wrapper
