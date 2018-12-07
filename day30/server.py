@@ -2,6 +2,7 @@ import socket
 
 sk = socket.socket()
 
+sk.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 sk.bind(('127.0.0.1',8080))
 
 sk.listen()
