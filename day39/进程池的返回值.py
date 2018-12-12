@@ -20,3 +20,7 @@ if __name__ == '__main__':
 
     for res in res_list :
         print(res.get())
+
+
+    p.close()
+    p.join()
