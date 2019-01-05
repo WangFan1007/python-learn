@@ -1,14 +1,14 @@
-#班级表
+--班级表
 create table class (
   cid int primary key auto_increment,
   caption varchar (15)
 );
-#教师表
+--教师表
 create table teacher (
   tid int primary key auto_increment,
   tname varchar(32)
 );
-#课程表
+--课程表
 create table course (
   cid int primary key auto_increment,
   cname varchar (15),
@@ -16,7 +16,7 @@ create table course (
   constraint course_to_teacher foreign key (teacher_id) references teacher(tid)
 );
 
-#学生表
+--学生表
 create table student(
   sid int primary key auto_increment,
   sname varchar(32),
@@ -54,3 +54,16 @@ insert into score (sid, number, student_id, course_id) values
 (1,60,1,1),
 (2,59,1,2),
 (3,100,2,2);
+
+--数据备份
+mysqldump -uroot db1 > db1.sql -p
+--数据库导入
+mysqldump -uroot db1 < db1.sql -p
+
+create table userinfo(
+  id int auto_increment primary key,
+  name char(15) not null ,
+  password char (32) not null
+);
+
+insert into userinfo ( name, password) values ('wangfan','root');
